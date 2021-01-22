@@ -1,0 +1,114 @@
+{
+  "id": "https://.../td/Cushion",
+  "@context": "https://schema.iot.webizing.org/"
+  ,
+  "@type": ["Cushion"],
+  "name": "Cushion Sensor",
+  "names": "",
+  "description" : "앉아 있는지 여부를 판단",
+  "properties": {
+    "name": {
+      "@type": "name",
+      "type": "string",
+      "title": "Name",
+      "description": "name of the sensor - format: firstName+LastName ex)jonghoLee, wanhoIm",
+      "forms": [
+        {
+          "href": "http://localhost:4000/graphql?query={ cushion {name}}",
+          "op": ["readproperty"],
+          "contentType": "application/json"
+         }
+      ],
+      "readOnly": true
+    },
+    "user": {
+      "@type": "user",
+      "type": "string",
+      "title": "User",
+      "description": "user of the sensor - format: firstName+LastName ex)jonghoLee, wanhoIm",
+      "forms": [{
+          "href": "http://localhost:4000/graphql?query={ cushion {user}}",
+          "op": ["readproperty"],
+          "contentType": "application/json"
+         }],
+      "readOnly": true
+    },
+    "address": {
+      "@type": "address",
+      "type": "string",
+      "title": "Address",
+      "description": "building where the sensor resides - format: organization-building ex)yongjaelee-house, kist-l1, kist-l8",
+      "forms": [{
+        "href": "http://localhost:4000/graphql?query={ cushion {address}}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "room": {
+      "@type": "room",
+      "type": "string",
+      "title": "Room",
+      "description": "room number of the building where the sensor resides - ex) L8321",
+      "forms": [{
+        "href": "http://localhost:4000/graphql?query={ cushion {room}}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "location": {
+      "@type": "location",
+      "type": "string",
+      "title": "Location",
+      "description": "location of the sensor - format: free",
+      "forms": [{
+        "href": "http://localhost:4000/graphql?query={ cushion {location }}",
+        "op": ["readproperty"],
+        "contentType": "application/json"} ],
+      "readOnly": true
+    },
+    "time": {
+      "@type": "time",
+      "type": "string",
+      "title": "Time",
+      "description": "time at which the data measurement was made - ex)\"2017-05-30T18:54:20+09:00\"",
+      "forms": [{"href": "http://localhost:4000/graphql?query={ cushion {time}}", "op": ["readproperty"],"contentType": "application/json"} ],
+      "readOnly": true
+    },
+    "pressure": {
+      "@type": "pressure",
+      "type": "number",
+      "title": "Pressure",
+      "description": "unit is to be defined",
+      "forms": [{"href": "http://localhost:4000/graphql?query={ cushion {pressure}}", "op": ["readproperty"],"contentType": "application/json"} ],
+      "readOnly": true
+    },
+    "temp": {
+      "@type": "temp",
+      "type": "number",
+      "title": "Temp",
+      "description": "temperature - unit: Celsius(℃)",
+      "forms": [{"href": "http://localhost:4000/graphql?query={ cushion {temp }}", "op": ["readproperty"],"contentType": "application/json"} ],
+      "readOnly": true
+    },
+    "status": {
+      "@type": "status",
+      "type": "number",
+      "title": "Status",
+      "description": "pm2.5 - unit: ㎍/㎥",
+      "forms": [{"href": "http://localhost:4000/graphql?query={ cushion {status }}", "op": ["readproperty"],"contentType": "application/json"} ],
+      "readOnly": true
+    }
+  },
+  "forms": [
+    {
+      "href": "http://localhost:4000/graphql?query={ cushion {_id _index  name user   address    room   location    time    pressure    temp   status }}",
+      "contentType": "application/json",
+      "op": ["readallproperties"]
+    }
+  ],
+  "securityDefinitions": {"nosec_sc": {"description" : "no security","scheme": "nosec"}},
+  "security": ["nosec_sc"],
+  "version": {"instance":"0.0.1" }
+}

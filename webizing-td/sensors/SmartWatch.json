@@ -1,0 +1,257 @@
+{
+  "id": "https://.../td/SmartWatch",
+  "@context": "https://schema.iot.webizing.org/",
+  "@type": ["SmartWatch"],
+  "name": "SmartWatch Sensor",
+  "names": "",
+  "description" : "걸음 수, 심박, 운동시간, 일어서 있는 시간 로깅 ex)Fitbit, AppleWatch",
+  "properties": {
+    "name": {
+      "@type": "name",
+      "type": "string",
+      "title": "Name",
+      "description": "name of the sensor - format: firstName+LastName ex)jonghoLee, wanhoIm",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        }
+      },
+      "forms": [{
+          "htv:methodName": "GET",
+          "op": ["readproperty"],
+          "contentType": "application/json",
+          "href": "http://localhost:3000/graphql?query={ smartWatch(name) {name}}"
+        }
+      ],
+      "readOnly": true
+    },
+    "user": {
+      "@type": "user",
+      "type": "string",
+      "title": "User",
+      "description": "user of the sensor - format: firstName+LastName ex)jonghoLee, wanhoIm",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        }
+      },
+      "forms": [{
+          "htv:methodName": "GET",
+          "href": "http://localhost:3000/graphql?query={ smartWatch(name) {user}}",
+          "op": ["readproperty"], "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "address": {
+      "@type": "address",
+      "type": "string",
+      "title": "Address",
+      "description": "building where the sensor resides - format: organization-building ex)yongjaelee-house, kist-l1, kist-l8",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        }
+      },
+      "forms": [{
+        "htv:methodName": "GET",
+        "href": "http://localhost:3000/graphql?query={ smartWatch(name) { address }}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "room": {
+      "type": "room",
+      "@type": "schema:Text",
+      "title": "Room",
+      "description": "room number of the building where the sensor resides - ex) L8321",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        }
+      },
+      "forms": [{
+        "htv:methodName": "GET",
+        "href": "http://localhost:3000/graphql?query={ smartWatch(name) {room }}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "location": {
+      "@type": "location",
+      "type": "string",
+      "title": "Location",
+      "description": "location of the sensor - format: free",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        }
+      },
+      "forms": [{
+        "htv:methodName": "GET",
+        "href": "http://localhost:3000/graphql?query={ smartWatch(name) { location }}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "stepCount": {
+      "@type": "stepCount",
+      "type": "array",
+      "items": {
+        "startDate": "string",
+        "endDate": "string",
+        "stepCount": "integer"
+      },
+      "title": "Step Count",
+      "description": "걸음 수",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        },
+        "startDate": {
+          "type": "string",
+          "@type": "time"
+        },
+        "endDate": {
+          "type": "string",
+          "@type": "time"
+        }
+      },
+      "forms": [{
+        "htv:methodName": "GET",
+        "href": "http://localhost:3000/graphql?query={ smartWatch(name, startDate, endDate) {stepCount{startDate endDate stepCount}}}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "heartRate": {
+      "@type": "heartRate",
+      "type": "array",
+      "items": {
+        "startDate": "string",
+        "endDate": "string",
+        "heartRate": "integer"
+      },
+      "title": "Heart Rate",
+      "description": "심박수 - unit: count/min",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        },
+        "startDate": {
+          "type": "string",
+          "@type": "time"
+        },
+        "endDate": {
+          "type": "string",
+          "@type": "time"
+        }
+      },
+      "forms": [{
+        "htv:methodName": "GET",
+        "href": "http://localhost:3000/graphql?query={ smartWatch(name:, startDate, endDate) { heartRate {startDate endDate heartRate}}}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "exerciseTime": {
+      "@type": "exerciseTime",
+      "type": "array",
+      "items": {
+        "startDate": "string",
+        "endDate": "string",
+        "exerciseTime": "integer"
+      },
+      "title": "Exercise Time",
+      "description": "운동시간 - unit: minute",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        },
+        "startDate": {
+          "type": "string",
+          "@type": "time"
+        },
+        "endDate": {
+          "type": "string",
+          "@type": "time"
+        }
+      },
+      "forms": [{
+        "htv:methodName": "GET",
+        "href": "http://localhost:3000/graphql?query={ smartWatch(name, startDate, endDate) { exerciseTime{startDate endDate exerciseTime} }}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    },
+    "standHour": {
+      "@type": "standHour",
+      "type": "array",
+      "items": {
+        "startDate": "string",
+        "endDate": "string",
+        "standHour": "number"
+      },
+      "title": "Stand Hour",
+      "description": "일어선 시간 - 1: 1시간, 0: 0시간",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        },
+        "startDate": {
+          "type": "string",
+          "@type": "time"
+        },
+        "endDate": {
+          "type": "string",
+          "@type": "time"
+        }
+      },
+      "forms": [{
+        "htv:methodName": "GET",
+        "href": "http://localhost:3000/graphql?query={ smartWatch(name, startDate, endDate) { standHour{startDate endDate standHour} }}",
+        "op": ["readproperty"],
+        "contentType": "application/json"
+      }],
+      "readOnly": true
+    }
+  },
+  "forms": [{
+      "htv:methodName": "GET",
+      "uriVariables": {
+        "name": {
+          "type": "string",
+          "@type": "name"
+        },
+        "startDate": {
+          "type": "string",
+          "@type": "time"
+        },
+        "endDate": {
+          "type": "string",
+          "@type": "time"
+        }
+      },
+      "href": "http://localhost:4000/graphql?query={ smartWatch(name, startDate, endDate)  {name user   address    room   location stepCount{startDate endDate stepCount} heartRate{startDate endDate heartRate} exerciseTime{startDate endDate exerciseTime} standHour{startDate endDate standHour}}}",
+      "contentType": "application/json",
+      "op": ["readallproperties"]
+    }
+  ],
+  "securityDefinitions": {"nosec_sc": {"description" : "no security","scheme": "nosec"}},
+  "security": ["nosec_sc"],
+  "version": {"instance":"0.0.1" }
+}

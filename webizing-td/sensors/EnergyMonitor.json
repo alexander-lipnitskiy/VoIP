@@ -1,0 +1,92 @@
+{
+  "id": "https://.../td/EnergyMonitor",
+  "@context": "https://schema.iot.webizing.org/",
+  "@type": ["EnergyMonitor"],
+  "name": "EnergyMonitor Sensor",
+  "names": "",
+  "description" : "전력 사용량 모니터링 ex)Smappee(5분 주기로 데이터를 가져옴), Enertalk",
+  "properties": {
+    "name": {
+      "@type": "name",
+      "type": "string",
+      "title": "Name",
+      "description": "name of the sensor - format: firstName+LastName ex)jonghoLee, wanhoIm",
+      "forms": [
+        {
+          "href": "http://localhost:3000/graphql?query={ energyMonitor {name}}",
+          "op": ["readproperty"],"contentType": "application/json"
+        }
+      ],
+      "readOnly": true
+    },
+    "user": {
+      "@type": "user",
+      "type": "string",
+      "title": "User",
+      "description": "user of the sensor - format: firstName+LastName ex)jonghoLee, wanhoIm",
+      "forms": [{
+          "href": "http://localhost:3000/graphql?query={ energyMonitor {user}}",
+          "op": ["readproperty"],"contentType": "application/json"
+        }],
+      "readOnly": true
+    },
+    "address": {
+      "@type": "address",
+      "type": "string",
+      "title": "Address",
+      "description": "building where the sensor resides - format: organization-building ex)yongjaelee-house, kist-l1, kist-l8",
+      "forms": [{"href": "http://localhost:3000/graphql?query={ energyMonitor {address}}", "op": ["readproperty"],"contentType": "application/json"}],
+      "readOnly": true
+    },
+    "room": {
+      "@type": "room",
+      "type": "string",
+      "title": "Room",
+      "description": "room number of the building where the sensor resides - ex) L8321",
+      "forms": [{"href": "http://localhost:3000/graphql?query={ energyMonitor {room}}", "op": ["readproperty"],"contentType": "application/json"}],
+      "readOnly": true
+    },
+    "location": {
+      "@type": "location",
+      "type": "string",
+      "title": "Location",
+      "description": "location of the sensor - format: free",
+      "forms": [{"href": "http://localhost:3000/graphql?query={ energyMonitor {location}}", "op": ["readproperty"],"contentType": "application/json"}],
+      "readOnly": true
+    },
+    "time": {
+      "@type": "time",
+      "type": "string",
+      "title": "Time",
+      "description": "time at which the data measurement was made - ex)\"2017-05-30T18:54:20+09:00\"",
+      "forms": [{"href": "http://localhost:3000/graphql?query={ energyMonitor {time}}", "op": ["readproperty"],"contentType": "application/json"}],
+      "readOnly": true
+    },
+    "consumption": {
+      "@type": "consumption",
+      "type": "number",
+      "title": "Consumption",
+      "description": "unit is to be defined",
+      "forms": [{"href": "http://localhost:3000/graphql?query={ energyMonitor { consumption }}", "op": ["readproperty"],"contentType": "application/json"}],
+      "readOnly": true
+    },
+    "alwaysOn": {
+      "@type": "schema:Float",
+      "type": "number",
+      "title": "AlwaysOn",
+      "description": "Standby Power - unit: W",
+      "forms": [{"href": "http://localhost:3000/graphql?query={ energyMonitor {alwaysOn}}", "op": ["readproperty"],"contentType": "application/json"}],
+      "readOnly": true
+    }
+  },
+  "forms": [
+    {
+      "href": "http://localhost:3000/graphql?query={ energyMonitor {name user   address    room   location    time    consumption   alwaysOn }}",
+      "contentType": "application/json",
+      "op": ["readallproperties"]
+    }
+  ],
+  "securityDefinitions": {"nosec_sc": {"description" : "no security","scheme": "nosec"}},
+  "security": ["nosec_sc"],
+  "version": {"instance":"0.0.1" }
+}
