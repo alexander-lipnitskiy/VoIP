@@ -34,3 +34,12 @@ yarn run start or node watson.js
 
 ![alt text](https://github.com/alexander-lipnitskiy/VoIP/blob/main/interface.png)
 
+# Links
+
+To read more about Web of Things https://github.com/webofthings/webofthings.js
+
+To read more about TD https://www.w3.org/TR/wot-thing-description/
+
+To read more about JSON-LD https://json-ld.org/
+
+To read more about Vocabulary https://schema.org/
