@@ -23,6 +23,7 @@ Raspberry Pi with sensors
 
 # Installation
 
+## Step 1
 Install asterisk on your system
 Go to a Asterisk-config folder and replace files with your asterisk (/etc/asterisk)
 Run asterisk
