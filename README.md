@@ -10,12 +10,12 @@ of how to process phone call. Ari client using IBM Watson for translating text t
 ![alt text](https://github.com/alexander-lipnitskiy/VoIP/blob/main/arch.png)
 
 # Requirements
+node.js - 12+
+
+yarn - 1.19.1+
 
 asterisk
 
-node.js
-
-yarn
 
 # Hardware
 Raspberry Pi with sensors
