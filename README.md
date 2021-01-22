@@ -19,5 +19,18 @@ asterisk
 # Hardware
 Raspberry Pi with sensors
 
+# Installation
+
+Install asterisk on your system
+Go to a Asterisk-config folder and replace files with your asterisk (/etc/asterisk)
+Run asterisk
+
+To run watson, ari-client, td server and client part open every folder and install node.js modules
+
+```bash
+yarn install
+yarn run start or node watson.js
+```
+
 ![alt text](https://github.com/alexander-lipnitskiy/VoIP/blob/main/interface.png)
 
