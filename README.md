@@ -18,6 +18,8 @@ asterisk
 
 # Hardware
 Raspberry Pi with sensors
+![alt text](https://github.com/alexander-lipnitskiy/VoIP/blob/main/hardware.png)
+
 
 # Installation
 
