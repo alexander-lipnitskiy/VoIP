@@ -6,3 +6,5 @@ in real-time current state of the sensors. VoIP phone connected to asterisk syst
 on Raspberry Pi3. Whenever user will call to the phone number that was given, asterisk address this
 call to Ari Client(JavaScript application). This is the core module of our system where is located logic
 of how to process phone call. Ari client using IBM Watson for translating text to speech.
+
+![alt text](https://github.com/alexander-lipnitskiy/VoIP/blob/main/arch.png)
