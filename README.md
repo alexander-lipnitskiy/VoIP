@@ -12,7 +12,9 @@ of how to process phone call. Ari client using IBM Watson for translating text t
 # Requirements
 
 asterisk
+
 node.js
+
 yarn
 
 # Hardware
