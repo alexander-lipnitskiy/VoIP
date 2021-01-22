@@ -17,7 +17,9 @@ yarn - 1.19.1+
 asterisk
 
 # Hardware
-Raspberry Pi with sensors
+Raspberry Pi with sensors:
+Gyroscope, Motion sensor, Light detection sensor, Led
+
 ![alt text](https://github.com/alexander-lipnitskiy/VoIP/blob/main/hardware.png)
 
 
