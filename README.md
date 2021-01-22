@@ -16,7 +16,8 @@ yarn - 1.19.1+
 
 asterisk
 
-
 # Hardware
 Raspberry Pi with sensors
+
+![alt text](https://github.com/alexander-lipnitskiy/VoIP/blob/main/interface.png)
 
